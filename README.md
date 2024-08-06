@@ -26,7 +26,7 @@ The dataset encompasses a variety of attributes related to patient health, allow
 | 3  | 48  | 70  | 1.005 | 4  | 0  | normal| abnormal| present   | notpresent| 117   | 56   | 3.8 | 111 | 2.5 | 11.2 | 32  | 6700 | 3.9 | yes | no  | no  | poor  | yes | yes | ckd            |
 | 4  | 51  | 80  | 1.010 | 2  | 0  | normal| normal  | notpresent| notpresent| 106   | 26   | 1.4 | NaN | NaN | 11.6 | 35  | 7300 | 4.6 | no  | no  | no  | good  | no  | no  | ckd            |
 
-##Key Steps:
+## Key Steps:
 
 1. Comprehensive EDA Process:
 
@@ -37,9 +37,9 @@ Extract valuable insights from the dataset through mathematical analysis and vis
 
 Utilize visualization techniques to gain a better understanding of the data.
 Identify patterns and trends that are crucial for making accurate predictions.
-Feature Engineering:
 
-3.
+3. Feature Engineering:
 
 Explore different approaches to feature engineering.
 Enhance the dataset by creating new features that can improve model performance.
+
