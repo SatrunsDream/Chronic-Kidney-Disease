@@ -9,7 +9,7 @@ By: Sardor Sobirov
 # Introduction
 In this project, we focus on developing a prediction model for chronic kidney disease (CKD) using a dataset obtained from the UCI Machine Learning Repository. The dataset can be accessed at this link. This dataset is designed to aid in predicting the occurrence of CKD and was collected from hospital records over a period of approximately two months.
 
-##Dataset Characteristics
+## Dataset Characteristics
 Type: Multivariate
 Subject Area: Other
 Associated Tasks: Classification
