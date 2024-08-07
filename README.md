@@ -61,6 +61,6 @@ We examined the distributions of individual columns by using DataFrame operation
   <iframe
   src="features_distribution_plot.html"
   width="700"
-  height="600"
+  height="1200"
   frameborder="0"
 ></iframe>
