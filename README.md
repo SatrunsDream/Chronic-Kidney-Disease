@@ -59,7 +59,7 @@ In this step, we perform both univariate and bivariate analyses to understand th
 We examined the distributions of individual columns by using DataFrame operations and creating relevant plots. 
 
   <iframe
-  src="features_distribution_plot.html"
+  src="assets/features_distribution_plot.html"
   width="700"
   height="1200"
   frameborder="0"
