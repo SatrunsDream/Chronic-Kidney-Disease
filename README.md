@@ -48,4 +48,19 @@ The first step is to clean the data to ensure it is suitable for effective analy
 
 ## Cleaning
 
-1.    First step in our data cleaning process was to replace ambiguous column names with more descriptive ones. Clear and descriptive column names make the dataset easier to understand and work with. 
+1.    First step in our data cleaning process was to replace ambiguous column names with more descriptive ones. Clear and descriptive column names make the dataset easier to understand and work with.
+2.    We observed missing values in several columns, To address these missing values, we first need to understand the missing mechanism behind them. This will involve determining if the missing values are missing completely at random (MCAR), missing at random (MAR), or missing not at random (MNAR). Once we understand the missing mechanism, we can use imputation techniques such as mean imputation, mode imputation, or more advanced methods like multiple imputation or predictive imputation to replace the missing values. We will explain these steps in more depth later in our analysis.
+
+## Exploring Data
+In this step, we perform both univariate and bivariate analyses to understand the distribution and relationships of our data, as well as examine interesting aggregates
+
+### Univariate Analysis
+
+We examined the distributions of individual columns by using DataFrame operations and creating relevant plots. 
+
+  <iframe
+  src="features_distribution_plot.html"
+  width="700"
+  height="600"
+  frameborder="0"
+></iframe>
