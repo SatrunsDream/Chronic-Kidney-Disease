@@ -59,8 +59,15 @@ In this step, we perform both univariate and bivariate analyses to understand th
 We examined the distributions of individual columns by using DataFrame operations and creating relevant plots. 
 
   <iframe
-  src="features_distribution_plot.html"
+  src="assets/features_distribution_plot.html"
   width="700"
-  height="600"
+  height="1200"
   frameborder="0"
 ></iframe>
+
+#### Observations
+
+1. Age Looks a Bit Left Skewed, Observation: The age distribution is left-skewed, meaning that there are fewer younger individuals compared to older individuals.
+2. Blood Glucose Random is Right Skewed: Blood glucose levels are right-skewed, indicating that most individuals have lower glucose levels, with a few having significantly higher levels.
+3. Blood Urea is Also a Bit Right Skewed: Blood urea levels exhibit right skewness, similar to blood glucose, where most values are on the lower end, and higher values are less frequent.
+4. Rest of the Features Are Lightly Skewed: Other features show light skewness, indicating that their distributions are relatively close to normal.
