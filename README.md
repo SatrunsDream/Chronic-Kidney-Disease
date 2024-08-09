@@ -49,7 +49,9 @@ The first step is to clean the data to ensure it is suitable for effective analy
 ## Cleaning
 
 1.    First step in our data cleaning process was to replace ambiguous column names with more descriptive ones. Clear and descriptive column names make the dataset easier to understand and work with.
-2.    We observed missing values in several columns, To address these missing values, we first need to understand the missing mechanism behind them. This will involve determining if the missing values are missing completely at random (MCAR), missing at random (MAR), or missing not at random (MNAR). Once we understand the missing mechanism, we can use imputation techniques such as mean imputation, mode imputation, or more advanced methods like multiple imputation or predictive imputation to replace the missing values. We will explain these steps in more depth later in our analysis.
+2.    The categorical columns were examined for inconsistencies in their values. For example, columns like 'diabetes_mellitus', 'coronary_artery_disease', and 'class' contained variations such as extra spaces or tab characters that could lead to incorrect interpretations.
+3.    The 'class' column, which originally contained categorical labels ('ckd' and 'not ckd' for kidney desease), was mapped to numeric values (0 and 1). This step is important for machine learning models that require numerical input rather than categorical labels.
+5.    We observed missing values in several columns, To address these missing values, we first need to understand the missing mechanism behind them. This will involve determining if the missing values are missing completely at random (MCAR), missing at random (MAR), or missing not at random (MNAR). Once we understand the missing mechanism, we can use imputation techniques such as mean imputation, mode imputation, or more advanced methods like multiple imputation or predictive imputation to replace the missing values. We will explain these steps in more depth later in our analysis.
 
 ## Exploring Data
 In this step, we perform both univariate and bivariate analyses to understand the distribution and relationships of our data, as well as examine interesting aggregates
@@ -71,3 +73,10 @@ We examined the distributions of individual columns by using DataFrame operation
 2. Blood Glucose Random is Right Skewed: Blood glucose levels are right-skewed, indicating that most individuals have lower glucose levels, with a few having significantly higher levels.
 3. Blood Urea is Also a Bit Right Skewed: Blood urea levels exhibit right skewness, similar to blood glucose, where most values are on the lower end, and higher values are less frequent.
 4. Rest of the Features Are Lightly Skewed: Other features show light skewness, indicating that their distributions are relatively close to normal.
+
+  <iframe
+  src="assets/features_distribution2_plot.html"
+  width="700"
+  height="1200"
+  frameborder="0"
+></iframe>
