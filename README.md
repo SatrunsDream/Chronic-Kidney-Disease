@@ -87,8 +87,8 @@ The correlations you've identified can provide insights into the relationships b
 
   <iframe
   src="assets/features_heat_map.html"
-  width="700"
-  height="1200"
+  width="800"
+  height="800"
   frameborder="0"
 ></iframe>
 
