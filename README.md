@@ -126,3 +126,13 @@ Biological Implication: The development of anemia in CKD patients is multifactor
 Significance: A negative correlation between serum creatinine and sodium may indicate that as kidney function deteriorates (with rising creatinine levels), the kidneys' ability to maintain sodium balance is compromised.
 Biological Implication: This imbalance can lead to conditions like hyponatremia (low sodium levels), which can have serious consequences, including confusion, seizures, and even coma.
 
+### Bivariate Analysis
+
+
+  <iframe
+  src="assets/bivariate_class.html"
+  width="700"
+  height="1200"
+  frameborder="0"
+></iframe>
+
