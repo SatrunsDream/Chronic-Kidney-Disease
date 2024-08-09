@@ -54,11 +54,11 @@ The first step is to clean the data to ensure it is suitable for effective analy
 5.    We observed missing values in several columns, To address these missing values, we first need to understand the missing mechanism behind them. This will involve determining if the missing values are missing completely at random (MCAR), missing at random (MAR), or missing not at random (MNAR). Once we understand the missing mechanism, we can use imputation techniques such as mean imputation, mode imputation, or more advanced methods like multiple imputation or predictive imputation to replace the missing values. We will explain these steps in more depth later in our analysis.
 
 ## Exploring Data
-In this step, we perform both univariate and bivariate analyses to understand the distribution and relationships of our data, as well as examine interesting aggregates
+In this step, both univariate and bivariate analyses to understand the distribution and relationships of our data, as well as examine interesting aggregates
 
 ### Univariate Analysis
 
-We examined the distributions of individual columns by using DataFrame operations and creating relevant plots. 
+Examine the distributions of individual columns by using DataFrame operations and creating relevant plots. 
 
   <iframe
   src="assets/features_distribution_plot.html"
@@ -83,7 +83,7 @@ We examined the distributions of individual columns by using DataFrame operation
 
 #### Correlations
 
-The correlations you've identified can provide insights into the relationships between various biological factors and their potential implications for chronic kidney disease (CKD). 
+The correlations can provide insights into the relationships between various biological factors and their potential implications for chronic kidney disease (CKD). 
 
   <iframe
   src="assets/features_heat_map.html"
@@ -134,4 +134,5 @@ Biological Implication: This imbalance can lead to conditions like hyponatremia 
   height="1200"
   frameborder="0"
 ></iframe>
+
 
