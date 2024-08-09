@@ -103,7 +103,6 @@ Biological Implication: These correlations could suggest that as kidney function
 
 Significance: This is an expected positive correlation, as blood glucose levels directly reflect the amount of sugar in the blood. High blood sugar levels are a key indicator of diabetes, which is a major risk factor for CKD.
 Biological Implication: Elevated blood glucose levels can damage the kidneys over time, contributing to the development or worsening of CKD.
-
 3. Blood Urea → Serum Creatinine:
 
 Significance: Both blood urea and serum creatinine are waste products filtered by the kidneys. An increase in these levels typically indicates impaired kidney function.
@@ -116,7 +115,7 @@ Biological Implication: These parameters are critical for assessing anemia, whic
 
 **Negative Correlations:**
 
-1. Albumin, Blood Urea → Red Blood Cell Count, Packed Cell Volume, Hemoglobin:
+1.  Albumin, Blood Urea → Red Blood Cell Count, Packed Cell Volume, Hemoglobin:
 
 Significance: Albumin is a protein that can leak into the urine when kidneys are damaged (albuminuria). Blood urea levels, as mentioned earlier, rise when kidney function is impaired. A negative correlation with red blood cell count, packed cell volume, and hemoglobin could indicate that as kidney function worsens, anemia becomes more severe.
 Biological Implication: The development of anemia in CKD patients is multifactorial, involving reduced erythropoietin production, blood loss, and nutritional deficiencies, all of which can be exacerbated by kidney damage.
@@ -125,3 +124,4 @@ Biological Implication: The development of anemia in CKD patients is multifactor
 
 Significance: A negative correlation between serum creatinine and sodium may indicate that as kidney function deteriorates (with rising creatinine levels), the kidneys' ability to maintain sodium balance is compromised.
 Biological Implication: This imbalance can lead to conditions like hyponatremia (low sodium levels), which can have serious consequences, including confusion, seizures, and even coma.
+
