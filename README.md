@@ -128,7 +128,6 @@ Biological Implication: This imbalance can lead to conditions like hyponatremia 
 
 ### Bivariate Analysis
 
-
   <iframe
   src="assets/bivariate_class.html"
   width="700"
