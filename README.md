@@ -156,3 +156,11 @@ Significance: Blood urea levels are higher in CKD patients because the kidneys a
 CKD: Mean = 1.72, Median = 2.0, Range = 0.0 to 5.0
 Non-CKD: Mean = 0.0, Median = 0.0, Range = 0.0 to 0.0
 Significance: The presence of albumin in CKD patients (and its absence in non-CKD patients) suggests kidney damage, as albumin should not normally be present in significant amounts in the urine. This highlights albumin's role in the early detection and monitoring of CKD.
+
+  <iframe
+  src="assets/bivariate_class2.html"
+  width="700"
+  height="1200"
+  frameborder="0"
+></iframe>
+
