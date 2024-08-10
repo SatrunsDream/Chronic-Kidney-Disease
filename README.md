@@ -137,25 +137,49 @@ These violin plots below compare key biomarkers between CKD and non-CKD patients
   frameborder="0"
 ></iframe>
 
-1. * *Serum Creatinine:*
+**We can draw the following conclusion from the plots above**
+
+* *Serum Creatinine:*
+
 CKD: Mean = 4.41, Median = 2.25, Range = 0.5 to 76.0
 Non-CKD: Mean = 0.87, Median = 0.9, Range = 0.4 to 1.2
-Significance: Serum creatinine is a key marker of kidney function. The significantly higher mean and broader range in the CKD group indicate impaired kidney function, as kidneys with CKD are less efficient at filtering creatinine from the blood. The sharp contrast with the non-CKD group emphasizes the potential use of serum creatinine as a diagnostic tool for CKD.
 
-2. * *Hemoglobin:*
+Significance: Serum creatinine is a crucial indicator of kidney function, as creatinine is a waste product filtered by the kidneys. In CKD patients, the kidneys lose their ability to efficiently filter creatinine, leading to higher levels in the blood. The stark contrast between CKD and non-CKD groups underscores serum creatinine's role as a diagnostic tool for identifying kidney dysfunction. Monitoring serum creatinine levels over time can help assess the progression of CKD and the effectiveness of treatments aimed at preserving kidney function.
+
+* *Hemoglobin:*
+
 CKD: Mean = 10.65, Median = 10.9, Range = 3.1 to 16.1
 Non-CKD: Mean = 15.19, Median = 15.0, Range = 13.0 to 17.8
-Significance: Hemoglobin levels are often lower in CKD patients due to anemia caused by reduced erythropoietin production (a hormone made by the kidneys that helps produce red blood cells). The lower mean hemoglobin in the CKD group indicates that anemia is a common complication of CKD, and monitoring hemoglobin levels could be essential in managing CKD patients.
 
-3. * *Blood Urea:*
+Significance: Hemoglobin is a protein in red blood cells that carries oxygen throughout the body. Lower hemoglobin levels in CKD patients are often due to anemia, a common complication of CKD caused by reduced production of erythropoietin (a hormone produced by the kidneys). Anemia can lead to fatigue, weakness, and other health issues in CKD patients. Regular monitoring of hemoglobin levels is essential in managing CKD, as it helps in identifying the need for treatments like erythropoiesis-stimulating agents or iron supplements to combat anemia and improve the patient's quality of life.
+
+* *Blood Urea:*
+
 CKD: Mean = 72.39, Median = 53.0, Range = 1.5 to 391.0
 Non-CKD: Mean = 32.80, Median = 33.0, Range = 10.0 to 50.0
-Significance: Blood urea levels are higher in CKD patients because the kidneys are less able to remove urea from the blood. The broad range in CKD patients also highlights the variable severity of kidney impairment in these individuals. Elevated blood urea could serve as a marker for CKD progression.
 
-4. * *Albumin:*
+Significance: Blood urea levels reflect the amount of urea nitrogen in the blood, a waste product formed from the breakdown of proteins. Elevated levels in CKD patients indicate impaired kidney function, as the kidneys are less able to remove urea from the bloodstream. The broad range of blood urea levels in CKD patients highlights the variability in disease severity and the degree of kidney impairment. Monitoring blood urea can help track disease progression, guide dietary recommendations, and inform the need for interventions like dialysis.
+
+* *Albumin:*
+
 CKD: Mean = 1.72, Median = 2.0, Range = 0.0 to 5.0
 Non-CKD: Mean = 0.0, Median = 0.0, Range = 0.0 to 0.0
-Significance: The presence of albumin in CKD patients (and its absence in non-CKD patients) suggests kidney damage, as albumin should not normally be present in significant amounts in the urine. This highlights albumin's role in the early detection and monitoring of CKD.
+
+Significance: Albumin is a protein that is normally retained in the bloodstream by healthy kidneys. The presence of albumin in CKD patients (and its absence in non-CKD patients) indicates kidney damage, as albumin should not normally pass into the urine in significant amounts. Elevated albumin levels in the urine (albuminuria) are often one of the earliest signs of CKD and can be used to detect the disease in its early stages. Regular testing for albumin in the urine is essential for early detection, monitoring disease progression, and preventing complications through timely interventions.
+
+* *Red Blood Cell Count:*
+
+CKD: Mean = 3.95, Median = 3.9, Range = 2.1 to 8.0
+Non-CKD: Mean = 5.38, Median = 5.3, Range = 4.4 to 6.5
+
+Significance: Red blood cells are responsible for carrying oxygen from the lungs to the rest of the body. A lower red blood cell count in CKD patients is indicative of anemia, which is commonly caused by reduced production of erythropoietin by the kidneys. Anemia in CKD patients can lead to symptoms such as fatigue, dizziness, and shortness of breath, significantly impacting their quality of life. Monitoring red blood cell count is crucial for diagnosing anemia in CKD patients and guiding treatment options, such as erythropoiesis-stimulating agents or iron supplements, to improve oxygen delivery and overall patient well-being.
+
+* *Packed Cell Volume (PCV):*
+
+CKD: Mean = 32.94, Median = 33.0, Range = 9.0 to 52.0
+Non-CKD: Mean = 46.34, Median = 46.0, Range = 40.0 to 54.0
+
+Significance: Packed cell volume, or hematocrit, measures the proportion of blood volume occupied by red blood cells. A lower PCV in CKD patients reflects a reduced number of red blood cells, which is consistent with anemia. This reduction in PCV means that CKD patients have a lower capacity to carry oxygen throughout the body, leading to the various symptoms of anemia. Monitoring PCV is important in assessing the severity of anemia in CKD patients and determining the need for interventions that can improve red blood cell production and oxygen-carrying capacity, ultimately improving patient outcomes.
 
   <iframe
   src="assets/bivariate_class2.html"
