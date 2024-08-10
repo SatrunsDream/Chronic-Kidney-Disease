@@ -135,22 +135,22 @@ Biological Implication: This imbalance can lead to conditions like hyponatremia 
   frameborder="0"
 ></iframe>
 
-1. Serum Creatinine:
+1. * *Serum Creatinine:*
 CKD: Mean = 4.41, Median = 2.25, Range = 0.5 to 76.0
 Non-CKD: Mean = 0.87, Median = 0.9, Range = 0.4 to 1.2
 Significance: Serum creatinine is a key marker of kidney function. The significantly higher mean and broader range in the CKD group indicate impaired kidney function, as kidneys with CKD are less efficient at filtering creatinine from the blood. The sharp contrast with the non-CKD group emphasizes the potential use of serum creatinine as a diagnostic tool for CKD.
 
-2. Hemoglobin:
+2. * *Hemoglobin:*
 CKD: Mean = 10.65, Median = 10.9, Range = 3.1 to 16.1
 Non-CKD: Mean = 15.19, Median = 15.0, Range = 13.0 to 17.8
 Significance: Hemoglobin levels are often lower in CKD patients due to anemia caused by reduced erythropoietin production (a hormone made by the kidneys that helps produce red blood cells). The lower mean hemoglobin in the CKD group indicates that anemia is a common complication of CKD, and monitoring hemoglobin levels could be essential in managing CKD patients.
 
-3. Blood Urea:
+3. * *Blood Urea:*
 CKD: Mean = 72.39, Median = 53.0, Range = 1.5 to 391.0
 Non-CKD: Mean = 32.80, Median = 33.0, Range = 10.0 to 50.0
 Significance: Blood urea levels are higher in CKD patients because the kidneys are less able to remove urea from the blood. The broad range in CKD patients also highlights the variable severity of kidney impairment in these individuals. Elevated blood urea could serve as a marker for CKD progression.
 
-4. Albumin:
+4. * *Albumin:*
 CKD: Mean = 1.72, Median = 2.0, Range = 0.0 to 5.0
 Non-CKD: Mean = 0.0, Median = 0.0, Range = 0.0 to 0.0
 Significance: The presence of albumin in CKD patients (and its absence in non-CKD patients) suggests kidney damage, as albumin should not normally be present in significant amounts in the urine. This highlights albumin's role in the early detection and monitoring of CKD.
