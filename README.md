@@ -128,7 +128,7 @@ Biological Implication: This imbalance can lead to conditions like hyponatremia 
 
 ### Bivariate Analysis
 
-These violin plots below compare key biomarkers between CKD and non-CKD patients. These differences are crucial for understanding the extent of kidney dysfunction and are essential for the diagnosis and monitoring of chronic kidney disease.
+The violin plots below compare key biomarkers between CKD and non-CKD patients. These differences are crucial for understanding the extent of kidney dysfunction and are essential for the diagnosis and monitoring of chronic kidney disease.
 
   <iframe
   src="assets/bivariate_class.html"
