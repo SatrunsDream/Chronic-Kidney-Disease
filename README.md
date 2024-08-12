@@ -184,7 +184,7 @@ Significance: Packed cell volume, or hematocrit, measures the proportion of bloo
   <iframe
   src="assets/bivariate_class2.html"
   width="700"
-  height="1000"
+  height="1200"
   frameborder="0"
 ></iframe>
 
@@ -193,6 +193,6 @@ Significance: Packed cell volume, or hematocrit, measures the proportion of bloo
   <iframe
   src="assets/bivariate_class3.html"
   width="700"
-  height="1200"
+  height="1000"
   frameborder="0"
 ></iframe>
