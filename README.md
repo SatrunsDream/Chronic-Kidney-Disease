@@ -190,9 +190,21 @@ Significance: Packed cell volume, or hematocrit, measures the proportion of bloo
 
 ### Correlation Patterns of Features
 
+Using the finding above help identify the most relevant and informative features for the correlation analysis. Understanding correlations helps in feature selection and engineering for the next step. 
+
   <iframe
   src="assets/bivariate_class3.html"
   width="700"
   height="1000"
   frameborder="0"
 ></iframe>
+
+<span style="color: green;">**Positive Correlations:**</span>
+
+*RBC Count Range (~2 to <4.5) and Hemoglobin (3 to <13) Classified as CKD*
+
+Significance: Identifies a specific range of RBC count and hemoglobin levels that correlate strongly with CKD. It suggests that lower RBC counts and hemoglobin levels are indicators of kidney dysfunction, possibly due to reduced erythropoietin production, which is common in CKD.
+
+*RBC Count Range (>4.5 to ~6.1) and Hemoglobin (>13 to 17.8) Classified as Non-CKD*
+
+Significance: Important counterpoint to the first observation, highlighting that higher RBC counts and hemoglobin levels are associated with a lower likelihood of CKD. It reinforces the idea that healthy kidney function is linked to normal or elevated levels of RBCs and hemoglobin.
