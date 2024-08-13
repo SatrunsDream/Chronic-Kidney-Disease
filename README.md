@@ -264,7 +264,7 @@ Line of Best Fit: The line of best fit would show a downward slope.
 
 Significance: The negative correlation indicates that lower haemoglobin levels are associated with higher blood urea levels, reflecting potential anemia or worsening renal function. This inverse relationship could be critical for understanding the interplay between anemia and kidney function.
 
-##Assessment of Missingness
+## Assessment of Missingness
 
 ### NMAR Analysis
 White Blood Cell Count and Red Blood Cell Count: Possibly the missing data in these features is related to low or abnormal values in these metrics, it could indicate that missingness is NMAR. For instance, if severe anemia cases (which would have very low red blood cell counts) are more likely to have missing data, this might suggest NMAR. This is likely not the case as low Reb and White Blood Cell Count are included in the data set.
