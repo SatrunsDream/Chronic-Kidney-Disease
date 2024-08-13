@@ -201,7 +201,7 @@ Using the finding above help identify the most relevant and informative features
 
 <span style="color: green;">**Positive Correlations:**</span>
 
-* *packed_cell_volume and red_blood_cell_count*
+* *packed cell volume and red blood cell count*
 
 Correlation: 0.75 (Positive)
 
@@ -211,7 +211,7 @@ Line of Best Fit: The line of best fit for these two features would likely show 
 
 Significance: The high positive correlation indicates redundancy between packed_cell_volume and red_blood_cell_count. Feature engineering could involve combining these features into a single metric (e.g., a ratio or index), which can simplify the model and potentially reduce multicollinearity. This composite feature could still provide robust information about blood health while improving model efficiency.
 
-* *serum_creatinine and blood_urea*
+* *serum creatinine and blood urea*
 
 Correlation: 0.55 (Positive)
 
@@ -223,7 +223,7 @@ Significance: The moderate positive correlation suggests that these features are
 
 <span style="color: purple;">**Negative Correlations:**</span>
 
-* *haemoglobin and red_blood_cell_count*
+* *haemoglobin and red blood cell count*
 
 Correlation: -0.60 (Negative)
 
@@ -233,7 +233,7 @@ Line of Best Fit: The line of best fit for these features would show a downward 
 
 Significance: The negative correlation and high variance suggest that haemoglobin and red_blood_cell_count provide complementary information. Feature engineering could involve creating an index or score that integrates these two features to better capture anemia's complexity and improve model performance.
 
-* *blood_urea and specific_gravity*
+* *blood urea and specific gravity*
 
 Correlation: -0.40 (Negative)
 
