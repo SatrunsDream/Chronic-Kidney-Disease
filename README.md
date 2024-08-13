@@ -204,15 +204,21 @@ Using the finding above help identify the most relevant and informative features
 * *packed_cell_volume and red_blood_cell_count*
 
 Correlation: 0.75 (Positive)
+
 Variance: Both features exhibit low variance, which indicates stability in the dataset. Their low variance suggests they are reliable indicators of blood health.
+
 Line of Best Fit: The line of best fit for these two features would likely show a strong upward slope, indicating that as one feature increases, the other tends to increase as well. This strong positive correlation suggests that they are closely related and might be capturing similar aspects of blood health.
+
 Significance: The high positive correlation indicates redundancy between packed_cell_volume and red_blood_cell_count. Feature engineering could involve combining these features into a single metric (e.g., a ratio or index), which can simplify the model and potentially reduce multicollinearity. This composite feature could still provide robust information about blood health while improving model efficiency.
 
 * *serum_creatinine and blood_urea*
 
 Correlation: 0.55 (Positive)
+
 Variance: Both features have moderate variance, indicating they provide different aspects of kidney function and are not overly redundant.
+
 Line of Best Fit: The line of best fit would show a moderate upward slope. While not as strong as the previous correlation, the positive relationship is still evident.
+
 Significance: The moderate positive correlation suggests that these features are related but not perfectly aligned. Combining serum_creatinine and blood_urea into a single feature, such as a ratio, can provide a comprehensive measure of kidney function. This can help in capturing the broader picture of renal health and improve model accuracy.
 
 <span style="color: purple;">**Negative Correlations:**</span>
@@ -220,13 +226,19 @@ Significance: The moderate positive correlation suggests that these features are
 * *haemoglobin and red_blood_cell_count*
 
 Correlation: -0.60 (Negative)
+
 Variance: High variance in these features indicates significant variability in blood health among individuals. This high variance is crucial as it shows that the features capture a broad spectrum of conditions.
+
 Line of Best Fit: The line of best fit for these features would show a downward slope, indicating that as haemoglobin levels increase, red_blood_cell_count tends to decrease, and vice versa. This inverse relationship can reflect underlying health issues, such as different forms of anemia.
+
 Significance: The negative correlation and high variance suggest that haemoglobin and red_blood_cell_count provide complementary information. Feature engineering could involve creating an index or score that integrates these two features to better capture anemia's complexity and improve model performance.
 
 * *blood_urea and specific_gravity*
 
 Correlation: -0.40 (Negative)
+
 Variance: Both features exhibit distinct ranges and distributions, indicating they capture different dimensions of kidney function.
+
 Line of Best Fit: The line of best fit would show a mild downward slope. This moderate negative correlation reflects that changes in blood_urea are somewhat inversely related to specific_gravity.
+
 Significance: Combining these features into a single metric or ratio could enhance the understanding of kidney function by incorporating their inverse relationship. This composite feature may offer more nuanced insights into kidney health and improve predictive accuracy.
