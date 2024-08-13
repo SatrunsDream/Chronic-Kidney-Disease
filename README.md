@@ -198,8 +198,19 @@ Using the finding above help identify the most relevant and informative features
   height="1000"
   frameborder="0"
 ></iframe>
+**We can draw the following conclusion from the plots above**
 
 <span style="color: green;">**Positive Correlations:**</span>
+
+* *Haemoglobin vs Packed Cell Volume*
+
+Correlation: 0.95 (Positive)
+
+Variance: Both features show low variance, which suggests they are stable and consistently related in the dataset.
+
+Line of Best Fit: The line of best fit would have a very steep upward slope, indicating a very strong positive relationship.
+
+Significance: This high positive correlation indicates that haemoglobin and packed cell volume are closely related. They are likely capturing similar aspects of blood health. Feature engineering might involve combining these features into a single metric or index to simplify the model and potentially reduce multicollinearity.
 
 * *packed cell volume and red blood cell count*
 
@@ -242,3 +253,13 @@ Variance: Both features exhibit distinct ranges and distributions, indicating th
 Line of Best Fit: The line of best fit would show a mild downward slope. This moderate negative correlation reflects that changes in blood_urea are somewhat inversely related to specific_gravity.
 
 Significance: Combining these features into a single metric or ratio could enhance the understanding of kidney function by incorporating their inverse relationship. This composite feature may offer more nuanced insights into kidney health and improve predictive accuracy.
+
+* *Haemoglobin vs Blood Urea*
+
+Correlation: -0.57 (Negative)
+
+Variance: High variance in both features indicates significant variability in blood health.
+
+Line of Best Fit: The line of best fit would show a downward slope.
+
+Significance: The negative correlation indicates that lower haemoglobin levels are associated with higher blood urea levels, reflecting potential anemia or worsening renal function. This inverse relationship could be critical for understanding the interplay between anemia and kidney function.
