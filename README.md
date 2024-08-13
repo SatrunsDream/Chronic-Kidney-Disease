@@ -263,3 +263,7 @@ Variance: High variance in both features indicates significant variability in bl
 Line of Best Fit: The line of best fit would show a downward slope.
 
 Significance: The negative correlation indicates that lower haemoglobin levels are associated with higher blood urea levels, reflecting potential anemia or worsening renal function. This inverse relationship could be critical for understanding the interplay between anemia and kidney function.
+
+##Assessment of Missingness
+
+### NMAR Analysis
