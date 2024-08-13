@@ -267,3 +267,10 @@ Significance: The negative correlation indicates that lower haemoglobin levels a
 ##Assessment of Missingness
 
 ### NMAR Analysis
+White Blood Cell Count and Red Blood Cell Count: Possibly the missing data in these features is related to low or abnormal values in these metrics, it could indicate that missingness is NMAR. For instance, if severe anemia cases (which would have very low red blood cell counts) are more likely to have missing data, this might suggest NMAR. This is likely not the case as low Reb and White Blood Cell Count are included in the data set.
+
+Potassium, Sodium: Similar reasoning applies if missing values in these features are associated with abnormal values or severe health conditions. Missingness related to outlier values or specific health conditions might suggest NMAR. However once again this does not seem to be the case as the data does in fact posses low in fact even extreme Potassium and Sodium levels
+
+Packed Cell Volume, Pus Cell, Haemoglobin: If missing data in these features is related to critical health conditions or specific thresholds, this could indicate NMAR. For example, if patients with very low haemoglobin levels are more likely to have missing data, this might be NMAR. Once again taking a glace at the data set likely not the case we see pleanty low haemoglobin levels
+
+Taking a look at the graphs generate before these are are likely not NMAR
