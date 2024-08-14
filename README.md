@@ -294,3 +294,6 @@ The model aims to predict the likelihood of chronic kidney disease (CKD). This i
 At the time of prediction, we will have access to various features, such as serum creatinine levels, blood urea, haemoglobin, and packed cell volume. These features will be used to predict the presence of CKD, offering valuable insights for early diagnosis and effective disease management.
 
 ## Model
+
+### Feature Encoding
+In the feature encoding step, categorical variables within the dataset are transformed into numerical values using LabelEncoder from the sklearn.preprocessing module. This process is essential for preparing the data for machine learning algorithms, which generally require numerical input. Many machine learning models cannot directly process categorical data. Converting these categories into numerical values allows the models to interpret and analyze the data effectively.
