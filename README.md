@@ -293,7 +293,7 @@ The model aims to predict the likelihood of chronic kidney disease (CKD). This i
 
 At the time of prediction, we will have access to various features, such as serum creatinine levels, blood urea, haemoglobin, and packed cell volume. These features will be used to predict the presence of CKD, offering valuable insights for early diagnosis and effective disease management.
 
-## Model
+## Model Preprocessing
 
 ### Feature Encoding
 
@@ -303,3 +303,14 @@ In the feature encoding step, categorical variables within the dataset are trans
 
 By performing feature selection to improve the prediction of chronic kidney disease (CKD). Using the chi-squared test to rank the importance of each feature in the dataset, focusing on how well they contribute to predicting whether a patient has CKD. By selecting the top-ranked features, the model can be more efficient and accurate, as it uses only the most relevant variables. The selected features are then used to train the classification model, helping to enhance its predictive power while reducing the risk of overfitting.
 
+## Models
+
+## KNN 
+
+The K-Nearest Neighbors (KNN) model is a simple, non-parametric algorithm used for classification tasks. It works by finding the 'k' closest data points (neighbors) to a given point and assigning the most common class among these neighbors to the point.
+
+In this case, the KNN model was trained to predict chronic kidney disease (CKD). The training accuracy was 0.78, indicating that the model performed reasonably well on the training data. However, the test accuracy was 0.63, which suggests that the model's performance dropped on unseen data, indicating potential overfitting or challenges with generalizing to new data.
+
+The confusion matrix shows that the model correctly identified 40 non-CKD cases and 23 CKD cases, but it also misclassified 20 non-CKD cases as CKD and 17 CKD cases as non-CKD.
+
+The classification report highlights that the model had a higher precision and recall for predicting non-CKD cases (class 0) compared to CKD cases (class 1). The overall accuracy of 0.63 suggests moderate performance, but there is room for improvement, especially in better distinguishing between CKD and non-CKD cases.
