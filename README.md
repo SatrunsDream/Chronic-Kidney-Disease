@@ -311,6 +311,20 @@ The K-Nearest Neighbors (KNN) model is a simple, non-parametric algorithm used f
 
 In this case, the KNN model was trained to predict chronic kidney disease (CKD). The training accuracy was 0.78, indicating that the model performed reasonably well on the training data. However, the test accuracy was 0.63, which suggests that the model's performance dropped on unseen data, indicating potential overfitting or challenges with generalizing to new data.
 
+  <iframe
+  src="assets/KNN_ROC.html"
+  width="700"
+  height="1200"
+  frameborder="0"
+></iframe>
+
 The confusion matrix shows that the model correctly identified 40 non-CKD cases and 23 CKD cases, but it also misclassified 20 non-CKD cases as CKD and 17 CKD cases as non-CKD.
 
 The classification report highlights that the model had a higher precision and recall for predicting non-CKD cases (class 0) compared to CKD cases (class 1). The overall accuracy of 0.63 suggests moderate performance, but there is room for improvement, especially in better distinguishing between CKD and non-CKD cases.
+
+  <iframe
+  src="assets/KNN_matric.html"
+  width="700"
+  height="1200"
+  frameborder="0"
+></iframe>
