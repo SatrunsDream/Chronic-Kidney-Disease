@@ -303,9 +303,25 @@ In the feature encoding step, categorical variables within the dataset are trans
 
 By performing feature selection to improve the prediction of chronic kidney disease (CKD). Using the chi-squared test to rank the importance of each feature in the dataset, focusing on how well they contribute to predicting whether a patient has CKD. By selecting the top-ranked features, the model can be more efficient and accurate, as it uses only the most relevant variables. The selected features are then used to train the classification model, helping to enhance its predictive power while reducing the risk of overfitting.
 
+
+| Features               | Score          |
+|------------------------|----------------|
+| white blood cell count | 15370.361936    |
+| blood glucose random   | 2460.018473     |
+| blood urea             | 2354.871268     |
+| serum creatinine       | 365.722794      |
+| packed cell volume     | 293.054028      |
+| albumin                | 227.370667      |
+| haemoglobin            | 119.060494      |
+| age                    | 114.603727      |
+| sugar                  | 109.200000      |
+| hypertension           | 88.200000       |
+
+The resulting tabel shows the highest scoring feature with respect to the prediction model The top three features—white blood cell count, blood glucose random, and blood urea—were identified as the most prevalent and important predictors of chronic kidney disease (CKD). Their significance lies in their direct association with inflammation, diabetes, and kidney function, which are key indicators of CKD, making them crucial for accurate and efficient model predictions.
+
 ## Models
 
-## KNN 
+### KNN 
 
 The K-Nearest Neighbors (KNN) model is a simple, non-parametric algorithm used for classification tasks. It works by finding the 'k' closest data points (neighbors) to a given point and assigning the most common class among these neighbors to the point.
 
@@ -329,4 +345,4 @@ The classification report highlights that the model had a higher precision and r
   frameborder="0"
 ></iframe>
 
-## Random Forest Classifier
+### Random Forest Classifier
