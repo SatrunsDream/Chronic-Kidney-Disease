@@ -285,4 +285,7 @@ The function find_non_mcar_columns() iterated over all columns with missing valu
 
 The final output showed that no significant differences in missingness proportions were found across the groups for any column. Therefore, the missing data in all columns was considered to be MCAR.
 
-Since the missing data is MCAR, the missingness is random and does not depend on any observed or unobserved values. This means that the missing data does not introduce systematic bias into the analysis.
+Since the missing data is MCAR, the missingness is random and does not depend on any observed or unobserved values. This means that the missing data does not introduce systematic bias into the analysis. Random sampling can be used to handle missing values effectively. Since missingness is unrelated to any other data, using random sampling won’t introduce bias.
+
+## Framing a Prediction Problem
+
