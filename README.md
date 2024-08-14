@@ -328,3 +328,5 @@ The classification report highlights that the model had a higher precision and r
   height="500"
   frameborder="0"
 ></iframe>
+
+## Random Forest Classifier
