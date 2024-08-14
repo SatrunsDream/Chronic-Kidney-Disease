@@ -274,3 +274,15 @@ Potassium, Sodium: Similar reasoning applies if missing values in these features
 Packed Cell Volume, Pus Cell, Haemoglobin: If missing data in these features is related to critical health conditions or specific thresholds, this could indicate NMAR. For example, if patients with very low haemoglobin levels are more likely to have missing data, this might be NMAR. Once again taking a glace at the data set likely not the case we see pleanty low haemoglobin levels
 
 Taking a look at the graphs generate before these are are likely not NMAR
+
+###  Testing Columns for Missingnes
+
+Each column in the dataset was tested to determine if the missing data was dependent on other variables. The process involved checking whether the proportion of missing values in a column differed significantly across different groups defined by other columns.
+The results indicate that the missing data for every column tested seems to be Missing Completely At Random (MCAR). This means that the probability of data being missing is not related to the values of any observed or missing data, and the missingness is purely random.
+
+The function test_missingness() compared the proportion of missing values in a specified column across different groups defined by another column. For each column, the proportion of missing values for each group was calculated. A statistical test (ANOVA or T-test) was performed to see if these proportions significantly differed across groups. If the p-value from the test was below a threshold (e.g., 0.05), it suggested that the missingness might be related to the group variable (i.e., not MCAR).
+The function find_non_mcar_columns() iterated over all columns with missing values and used test_missingness() to test for missingness across all other columns. It collected results where the p-value indicated that the missingness might not be MCAR (i.e., p-value < 0.05).
+
+The final output showed that no significant differences in missingness proportions were found across the groups for any column. Therefore, the missing data in all columns was considered to be MCAR.
+
+Since the missing data is MCAR, the missingness is random and does not depend on any observed or unobserved values. This means that the missing data does not introduce systematic bias into the analysis.
