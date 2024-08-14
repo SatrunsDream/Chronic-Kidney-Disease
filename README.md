@@ -313,8 +313,8 @@ In this case, the KNN model was trained to predict chronic kidney disease (CKD).
 
   <iframe
   src="assets/KNN_ROC.html"
-  width="700"
-  height="1200"
+  width="800"
+  height="500"
   frameborder="0"
 ></iframe>
 
@@ -324,7 +324,7 @@ The classification report highlights that the model had a higher precision and r
 
   <iframe
   src="assets/KNN_matric.html"
-  width="700"
-  height="1200"
+  width="800"
+  height="500"
   frameborder="0"
 ></iframe>
