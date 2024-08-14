@@ -289,3 +289,8 @@ Since the missing data is MCAR, the missingness is random and does not depend on
 
 ## Framing a Prediction Problem
 
+The model aims to predict the likelihood of chronic kidney disease (CKD). This is a classification task, as we are predicting whether a patient falls into the CKD or non-CKD category. The metric we will use to evaluate our model’s performance is accuracy, as it provides a straightforward interpretation of the proportion of correctly classified instances.
+
+At the time of prediction, we will have access to various features, such as serum creatinine levels, blood urea, haemoglobin, and packed cell volume. These features will be used to predict the presence of CKD, offering valuable insights for early diagnosis and effective disease management.
+
+## Model
