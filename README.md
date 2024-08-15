@@ -447,12 +447,60 @@ The Random Forest Classifier demonstrated excellent performance with a test accu
 
 ### XGBClassifier
 
+
+The XGBoost model is a powerful gradient boosting algorithm used for classification tasks. It enhances predictive performance by combining multiple weak learners (decision trees) into a strong model, focusing on the errors of previous trees to improve overall accuracy.
+
+**Best Parameters:**
+
+n_estimators: 100
+
+min_child_weight: 1
+
+max_depth: 12
+
+learning_rate: 0.25
+  
+gamma: 0.1
+ 
+colsample_bytree: 0.3
+
+**Performance Metrics:**
+
+Training Accuracy: 100%
+
+The model achieved a training accuracy of 100%, indicating perfect classification of the training data. This suggests that the model has learned the training data very well, although it could also imply overfitting if not tested thoroughly on unseen data.
+
+Test Accuracy: 96%
+
+The test accuracy was 96%, demonstrating that the model generalized well to new data. This high accuracy on the test set indicates robust performance and effective prediction on unseen instances.
+
+**Confusion Matrix**
+
   <iframe
   src="assets/XGBC_CM.html"
   width="800"
   height="500"
   frameborder="0"
 ></iframe>
+
+True Negatives (TN): 66 - Correctly identified instances of class 0. 
+
+False Positives (FP): 2 - Instances of class 0 incorrectly identified as class 1.  
+
+False Negatives (FN): 2 - Instances of class 1 incorrectly identified as class 0.  
+
+True Positives (TP): 30 - Correctly identified instances of class 1.
+
+**Classification Report**
+
+| Class | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|---------|
+| 0     | 0.97      | 0.97   | 0.97     | 68      |
+| 1     | 0.94      | 0.94   | 0.94     | 32      |
+| Accuracy  |       |        | 0.96    | 100     |
+| Macro Avg | 0.95      | 0.95   | 0.95     | 100     |
+| Weighted Avg | 0.96  | 0.96   | 0.96     | 100     |
+
 
   <iframe
   src="assets/XGBC_ROC.html"
@@ -461,4 +509,5 @@ The Random Forest Classifier demonstrated excellent performance with a test accu
   frameborder="0"
 ></iframe>
 
+The XGBoost classifier demonstrated excellent performance with a test accuracy of 96%. The model effectively identified both classes with high precision and recall. The confusion matrix and classification report highlight the model's strong ability to classify instances correctly with minimal errors. This robust performance reflects the model’s effectiveness in handling the classification task and its generalization to new data.
 
