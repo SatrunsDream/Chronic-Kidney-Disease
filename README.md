@@ -7,7 +7,7 @@
 By: Sardor Sobirov
 
 # Introduction
-In this project, we focus on developing a prediction model for chronic kidney disease (CKD) using a dataset obtained from the UCI Machine Learning Repository. The dataset can be accessed at this link. This dataset is designed to aid in predicting the occurrence of CKD and was collected from hospital records over a period of approximately two months.
+In this project, we focus on developing a prediction model for chronic kidney disease (CKD) using a dataset obtained from the UCI Machine Learning Repository. The dataset can be accessed at this [link](https://archive.ics.uci.edu/dataset/336/chronic+kidney+disease). This dataset is designed to aid in predicting the occurrence of CKD and was collected from hospital records over a period of approximately two months.
 
 ## Dataset Characteristics
 Type: Multivariate
@@ -303,14 +303,33 @@ In the feature encoding step, categorical variables within the dataset are trans
 
 By performing feature selection to improve the prediction of chronic kidney disease (CKD). Using the chi-squared test to rank the importance of each feature in the dataset, focusing on how well they contribute to predicting whether a patient has CKD. By selecting the top-ranked features, the model can be more efficient and accurate, as it uses only the most relevant variables. The selected features are then used to train the classification model, helping to enhance its predictive power while reducing the risk of overfitting.
 
+
+| Features               | Score          |
+|------------------------|----------------|
+| white blood cell count | 15370.361936    |
+| blood glucose random   | 2460.018473     |
+| blood urea             | 2354.871268     |
+| serum creatinine       | 365.722794      |
+| packed cell volume     | 293.054028      |
+| albumin                | 227.370667      |
+| haemoglobin            | 119.060494      |
+| age                    | 114.603727      |
+| sugar                  | 109.200000      |
+| hypertension           | 88.200000       |
+
+The resulting tabel shows the highest scoring feature with respect to the prediction model The top three features—white blood cell count, blood glucose random, and blood urea—were identified as the most prevalent and important predictors of chronic kidney disease (CKD). Their significance lies in their direct association with inflammation, diabetes, and kidney function, which are key indicators of CKD, making them crucial for accurate and efficient model predictions.
+
 ## Models
 
-## KNN 
+### KNN 
 
-The K-Nearest Neighbors (KNN) model is a simple, non-parametric algorithm used for classification tasks. It works by finding the 'k' closest data points (neighbors) to a given point and assigning the most common class among these neighbors to the point.
+### Random Forest Classifier
 
-In this case, the KNN model was trained to predict chronic kidney disease (CKD). The training accuracy was 0.78, indicating that the model performed reasonably well on the training data. However, the test accuracy was 0.63, which suggests that the model's performance dropped on unseen data, indicating potential overfitting or challenges with generalizing to new data.
+### XGBClassifier
 
-The confusion matrix shows that the model correctly identified 40 non-CKD cases and 23 CKD cases, but it also misclassified 20 non-CKD cases as CKD and 17 CKD cases as non-CKD.
 
-The classification report highlights that the model had a higher precision and recall for predicting non-CKD cases (class 0) compared to CKD cases (class 1). The overall accuracy of 0.63 suggests moderate performance, but there is room for improvement, especially in better distinguishing between CKD and non-CKD cases.
+
+- **Precision**: 100% for class 0 and 98% for class 1, indicating that the model's predictions were highly accurate.
+- **Recall**: 98% for class 0 and 100% for class 1, showing that the model successfully identified most of the actual positive cases.
+- **F1-Score**: 0.99 for both classes, reflecting a strong balance between precision and recall.
+
