@@ -323,13 +323,50 @@ The resulting tabel shows the highest scoring feature with respect to the predic
 
 ### KNN 
 
+  <iframe
+  src="assets/KNN_CM.html"
+  width="800"
+  height="500"
+  frameborder="0"
+></iframe>
+
+  <iframe
+  src="assets/KNN_ROC.html"
+  width="800"
+  height="500"
+  frameborder="0"
+></iframe>
+
 ### Random Forest Classifier
+
+  <iframe
+  src="assets/RFC_CM.html"
+  width="800"
+  height="500"
+  frameborder="0"
+></iframe>
+
+  <iframe
+  src="assets/RFC_ROC.html"
+  width="800"
+  height="500"
+  frameborder="0"
+></iframe>
 
 ### XGBClassifier
 
+  <iframe
+  src="assets/XGBC_CM.html"
+  width="800"
+  height="500"
+  frameborder="0"
+></iframe>
 
+  <iframe
+  src="assets/XGBC_ROC.html"
+  width="800"
+  height="500"
+  frameborder="0"
+></iframe>
 
-- **Precision**: 100% for class 0 and 98% for class 1, indicating that the model's predictions were highly accurate.
-- **Recall**: 98% for class 0 and 100% for class 1, showing that the model successfully identified most of the actual positive cases.
-- **F1-Score**: 0.99 for both classes, reflecting a strong balance between precision and recall.
 
