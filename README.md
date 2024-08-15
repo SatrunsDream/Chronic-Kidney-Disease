@@ -432,9 +432,9 @@ True Positives (TP): 29 - Correctly identified instances of class 1.
 |-------|-----------|--------|----------|---------|
 | 0     | 0.96      | 1.00   | 0.98     | 68      |
 | 1     | 1.00      | 0.91   | 0.95     | 32      |
-| **Accuracy**  |       |        | **0.97**     | **100**     |
-| **Macro Avg** | 0.98      | 0.95   | 0.96     | 100     |
-| **Weighted Avg** | 0.97  | 0.97   | 0.97     | 100     |
+| Accuracy  |       |        | 0.97     | 100     |
+| Macro Avg | 0.98      | 0.95   | 0.96     | 100     |
+| Weighted Avg | 0.97  | 0.97   | 0.97     | 100     |
 
   <iframe
   src="assets/RFC_ROC.html"
