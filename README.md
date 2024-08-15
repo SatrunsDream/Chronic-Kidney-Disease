@@ -323,68 +323,11 @@ The resulting tabel shows the highest scoring feature with respect to the predic
 
 ### KNN 
 
-The K-Nearest Neighbors (KNN) model is a simple, non-parametric algorithm used for classification tasks. It works by finding the 'k' closest data points (neighbors) to a given point and assigning the most common class among these neighbors to the point.
-
-In this case, the KNN model was trained to predict chronic kidney disease (CKD). The training accuracy was 0.78, indicating that the model performed reasonably well on the training data. However, the test accuracy was 0.63, which suggests that the model's performance dropped on unseen data, indicating potential overfitting or challenges with generalizing to new data.
-
-  <iframe
-  src="assets/KNN_ROC.html"
-  width="800"
-  height="500"
-  frameborder="0"
-></iframe>
-
-The confusion matrix shows that the model correctly identified 40 non-CKD cases and 23 CKD cases, but it also misclassified 20 non-CKD cases as CKD and 17 CKD cases as non-CKD.
-
-The classification report highlights that the model had a higher precision and recall for predicting non-CKD cases (class 0) compared to CKD cases (class 1). The overall accuracy of 0.63 suggests moderate performance, but there is room for improvement, especially in better distinguishing between CKD and non-CKD cases.
-
-  <iframe
-  src="assets/KNN_matric.html"
-  width="800"
-  height="500"
-  frameborder="0"
-></iframe>
-
 ### Random Forest Classifier
 
 ### XGBClassifier
 
-The XGBoost model is a robust, gradient boosting algorithm used for classification tasks. It combines multiple weak learners (decision trees) to build a strong predictive model, improving performance by focusing on the errors of previous trees.
 
-**Best Parameters:**
-- **n_estimators**: 100  
-- **min_child_weight**: 1  
-- **max_depth**: 5  
-- **learning_rate**: 0.05  
-- **gamma**: 0.2  
-- **colsample_bytree**: 0.3  
-
-#### Performance Metrics
-
-- **Training Accuracy**: 0.99  
-  - The model achieved a training accuracy of 99%, indicating excellent performance on the training data.
-
-- **Test Accuracy**: 0.99  
-  - The test accuracy was also 99%, showing that the model generalized well to unseen data, with minimal misclassifications.
-
-
-
-#### Confusion Matrix
-
-- **True Negatives (TN)**: 56 (Correctly identified non-CKD cases)  
-- **False Positives (FP)**: 1 (Non-CKD cases incorrectly identified as CKD)  
-- **False Negatives (FN)**: 0 (CKD cases incorrectly identified as non-CKD)  
-- **True Positives (TP)**: 43 (Correctly identified CKD cases)  
-
-#### Classification Report
-
-| Class | Precision | Recall | F1-Score | Support |
-|-------|-----------|--------|----------|---------|
-| 0     | 1.00      | 0.98   | 0.99     | 57      |
-| 1     | 0.98      | 1.00   | 0.99     | 43      |
-| **Accuracy** |   |   | 0.99     | 100     |
-| **Macro Avg** | 0.99      | 0.99   | 0.99     | 100     |
-| **Weighted Avg** | 0.99      | 0.99   | 0.99     | 100     |
 
 - **Precision**: 100% for class 0 and 98% for class 1, indicating that the model's predictions were highly accurate.
 - **Recall**: 98% for class 0 and 100% for class 1, showing that the model successfully identified most of the actual positive cases.
