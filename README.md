@@ -295,8 +295,6 @@ At the time of prediction, we will have access to various features, such as seru
 
 ## Model Preprocessing
 
-**In this analysis, we explore the performance of three different machine learning models used for classifying chronic kidney disease (CKD) versus non-CKD cases. Each model has been evaluated on various metrics to determine its effectiveness in predicting CKD outcomes.**
-
 ### Feature Encoding
 
 In the feature encoding step, categorical variables within the dataset are transformed into numerical values using LabelEncoder from the sklearn.preprocessing module. This process is essential for preparing the data for machine learning algorithms, which generally require numerical input. Many machine learning models cannot directly process categorical data. Converting these categories into numerical values allows the models to interpret and analyze the data effectively.
@@ -322,6 +320,8 @@ By performing feature selection to improve the prediction of chronic kidney dise
 The resulting tabel shows the highest scoring feature with respect to the prediction model The top three features—white blood cell count, blood glucose random, and blood urea—were identified as the most prevalent and important predictors of chronic kidney disease (CKD). Their significance lies in their direct association with inflammation, diabetes, and kidney function, which are key indicators of CKD, making them crucial for accurate and efficient model predictions.
 
 ## Models
+
+**In this analysis, we explore the performance of three different machine learning models used for classifying chronic kidney disease (CKD) versus non-CKD cases. Each model has been evaluated on various metrics to determine its effectiveness in predicting CKD outcomes.**
 
 ### KNN 
 The K-Nearest Neighbors (KNN) model is a simple yet effective classification algorithm. It predicts the class of a data point based on the majority class among its nearest neighbors, making it particularly useful for classification tasks with well-separated classes.
