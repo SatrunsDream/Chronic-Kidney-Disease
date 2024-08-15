@@ -336,7 +336,7 @@ Leaf Size: 35
 
 Algorithm: ball_tree
 
-Performance Metrics:
+**Performance Metrics:**
 
 Training Accuracy: 100%
 
@@ -346,7 +346,7 @@ Test Accuracy: 69%
 
 The test accuracy was 69%, meaning the model correctly classified 69% of the instances on unseen data. While this accuracy is decent, the drop from 100% training accuracy suggests potential overfitting.
 
-#### Confusion Matrix
+**Confusion Matrix:**
   <iframe
   src="assets/KNN_CM.html"
   width="800"
@@ -355,11 +355,14 @@ The test accuracy was 69%, meaning the model correctly classified 69% of the ins
 ></iframe>
 
 True Negatives (TN): 45 - Correctly identified instances of class 0.
+
 False Positives (FP): 23 - Instances of class 0 incorrectly identified as class 1.
+
 False Negatives (FN): 8 - Instances of class 1 incorrectly identified as class 0.
+
 True Positives (TP): 24 - Correctly identified instances of class 1.
 
-#### Classification Report
+**Classification Report:**
 
 | Class | Precision | Recall | F1-Score | Support |
 |-------|-----------|--------|----------|---------|
@@ -380,6 +383,34 @@ The K-Nearest Neighbors (KNN) classifier demonstrated good performance with a te
 
 ### Random Forest Classifier
 
+The Random Forest Classifier is an ensemble learning method that combines multiple decision trees to improve classification accuracy and control overfitting. It aggregates the predictions of numerous decision trees to produce a final classification result, enhancing performance by reducing variance.
+
+**Best Parameters:**
+
+n_estimators: 100
+
+min_samples_split: 5
+
+min_samples_leaf: 1
+
+max_features: 0.75
+
+max_depth: 12
+
+criterion: gini
+
+** Performance Metrics:**
+
+Training Accuracy: 0.997
+
+The model achieved a training accuracy of 99.7%, indicating that it correctly classified nearly all instances in the training data. This high accuracy suggests a strong fit to the training data, but could also imply a risk of overfitting.
+
+Test Accuracy: 0.97
+
+The test accuracy was 97%, demonstrating that the model generalized well to unseen data. The high test accuracy confirms the model’s robustness and its ability to make accurate predictions on new data.
+
+**Confusion Matrix:**
+
   <iframe
   src="assets/RFC_CM.html"
   width="800"
@@ -387,12 +418,32 @@ The K-Nearest Neighbors (KNN) classifier demonstrated good performance with a te
   frameborder="0"
 ></iframe>
 
+True Negatives (TN): 68 - Correctly identified instances of class 0.
+
+False Positives (FP): 0 - Instances of class 0 incorrectly identified as class 1.
+
+False Negatives (FN): 3 - Instances of class 1 incorrectly identified as class 0.
+
+True Positives (TP): 29 - Correctly identified instances of class 1.
+
+**Classification Report:**
+
+| Class | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|---------|
+| 0     | 0.96      | 1.00   | 0.98     | 68      |
+| 1     | 1.00      | 0.91   | 0.95     | 32      |
+| **Accuracy**  |       |        | **0.97**     | **100**     |
+| **Macro Avg** | 0.98      | 0.95   | 0.96     | 100     |
+| **Weighted Avg** | 0.97  | 0.97   | 0.97     | 100     |
+
   <iframe
   src="assets/RFC_ROC.html"
   width="800"
   height="500"
   frameborder="0"
 ></iframe>
+
+The Random Forest Classifier demonstrated excellent performance with a test accuracy of 97%. The model effectively differentiated between the classes, achieving high precision and recall. The confusion matrix and classification report highlight the model's ability to classify instances accurately with minimal errors. This strong performance suggests that the model is well-suited for the classification task and shows robust generalization to new data.
 
 ### XGBClassifier
 
