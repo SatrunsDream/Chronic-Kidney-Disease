@@ -399,7 +399,7 @@ max_depth: 12
 
 criterion: gini
 
-** Performance Metrics:**
+**Performance Metrics:**
 
 Training Accuracy: 0.997
 
