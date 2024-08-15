@@ -354,6 +354,11 @@ The test accuracy was 69%, meaning the model correctly classified 69% of the ins
   frameborder="0"
 ></iframe>
 
+True Negatives (TN): 45 - Correctly identified instances of class 0.
+False Positives (FP): 23 - Instances of class 0 incorrectly identified as class 1.
+False Negatives (FN): 8 - Instances of class 1 incorrectly identified as class 0.
+True Positives (TP): 24 - Correctly identified instances of class 1.
+
 #### Classification Report
 
 | Class | Precision | Recall | F1-Score | Support |
