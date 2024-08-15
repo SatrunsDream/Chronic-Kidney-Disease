@@ -322,7 +322,31 @@ The resulting tabel shows the highest scoring feature with respect to the predic
 ## Models
 
 ### KNN 
+The K-Nearest Neighbors (KNN) model is a simple yet effective classification algorithm. It predicts the class of a data point based on the majority class among its nearest neighbors, making it particularly useful for classification tasks with well-separated classes.
 
+**Best Parameters:**
+
+Weights: distance
+
+p: 1 (Manhattan distance metric)
+
+n_neighbors: 29
+
+Leaf Size: 35
+
+Algorithm: ball_tree
+
+Performance Metrics:
+
+Training Accuracy: 100%
+
+The model achieved a training accuracy of 100%, indicating it perfectly classified the training data. This high accuracy suggests that the model fit the training data extremely well, but it may also indicate overfitting, where the model memorizes the training data rather than learning generalizable patterns.
+
+Test Accuracy: 69%
+
+The test accuracy was 69%, meaning the model correctly classified 69% of the instances on unseen data. While this accuracy is decent, the drop from 100% training accuracy suggests potential overfitting.
+
+#### Confusion Matrix
   <iframe
   src="assets/KNN_CM.html"
   width="800"
@@ -330,12 +354,24 @@ The resulting tabel shows the highest scoring feature with respect to the predic
   frameborder="0"
 ></iframe>
 
+#### Classification Report
+
+| Class | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|---------|
+| 0 | 0.85      | 0.66   | 0.74     | 68      |
+| 1 | 0.51      | 0.75   | 0.61     | 32      |
+| Accuracy  |       |        | 0.69     | 100     |
+| Macro Avg | 0.68      | 0.71   | 0.68     | 100     |
+| Weighted Avg | 0.74  | 0.69   | 0.70     | 100     |
+
   <iframe
   src="assets/KNN_ROC.html"
   width="800"
   height="500"
   frameborder="0"
 ></iframe>
+
+The K-Nearest Neighbors (KNN) classifier demonstrated good performance with a test accuracy of 69%. The model effectively identified most of the instances of both classes, although it performed better for class 0 than for class 1. The model performed well on the training data, achieving 100% accuracy, and maintained decent accuracy on the test data. The high precision for class 0 indicates reliable predictions for the majority class. The significant drop in accuracy from the training to the test set suggests potential overfitting. The lower precision for class 1 and the higher number of false positives (23) indicate room for improvement in distinguishing between the two classes.
 
 ### Random Forest Classifier
 
