@@ -10,12 +10,12 @@ By: Sardor Sobirov
 In this project, we focus on developing a prediction model for chronic kidney disease (CKD) using a dataset obtained from the UCI Machine Learning Repository. The dataset can be accessed at this [link](https://archive.ics.uci.edu/dataset/336/chronic+kidney+disease). This dataset is designed to aid in predicting the occurrence of CKD and was collected from hospital records over a period of approximately two months.
 
 ## Dataset Characteristics
-Type: Multivariate
-Subject Area: Other
-Associated Tasks: Classification
-Feature Type: Real
-Number of Instances: 400
-Number of Features: 24
+Type: Multivariate,
+Subject Area: Other,
+Associated Tasks: Classification,
+Feature Type: Real,
+Number of Instances: 400,
+Number of Features: 24,
 The dataset encompasses a variety of attributes related to patient health, allowing for the development of robust models to predict the presence of chronic kidney disease. This will involve exploring and preprocessing the data, selecting appropriate features, and applying classification algorithms to achieve accurate predictions.
 
 | id | age | bp  | sg    | al | su | rbc   | pc      | pcc       | ba        | bgr   | bu   | sc  | sod | pot | hemo | pcv | wc   | rc  | htn | dm  | cad | appet | pe  | ane | classification |
