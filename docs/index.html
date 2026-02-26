@@ -160,8 +160,8 @@
     <div class="wrapper">
       <h2>Introduction</h2>
       <p class="section-lead">A machine learning project using the UCI Chronic Kidney Disease dataset to predict CKD from clinical and lab features.</p>
-      <p>This project walks through building a prediction model for chronic kidney disease using a multivariate dataset from the <a href="https://archive.ics.uci.edu/dataset/336/chronic+kidney+disease" target="_blank" rel="noopener" style="color: var(--accent);">UCI Machine Learning Repository</a>. The data was collected from hospital records over about two months and includes 400 instances and 24 features—a mix of numerical lab values and categorical clinical indicators.</p>
-      <p>We clean the data, explore distributions and correlations, assess missingness, then train and compare three classifiers: K-Nearest Neighbors, Random Forest, and XGBoost. The goal is a clear, reproducible narrative you can scroll through section by section.</p>
+      <p>In this project, we focus on developing a prediction model for chronic kidney disease (CKD) using a dataset obtained from the <a href="https://archive.ics.uci.edu/dataset/336/chronic+kidney+disease" target="_blank" rel="noopener" style="color: var(--accent);">UCI Machine Learning Repository</a>. The dataset was collected from hospital records over a period of approximately two months and is designed to aid in predicting the occurrence of CKD.</p>
+      <p>The dataset encompasses a variety of attributes related to patient health. We explore and preprocess the data, select appropriate features, and apply classification algorithms to achieve accurate predictions. Key steps include comprehensive EDA (exploratory data analysis), data visualization to identify patterns and trends, and feature engineering to enhance the dataset for modeling.</p>
     </div>
   </section>
 
@@ -169,15 +169,36 @@
     <div class="wrapper">
       <h2>Dataset at a glance</h2>
       <p class="section-lead">Multivariate, classification task; 400 samples, 24 features.</p>
-      <p>Features include age, blood pressure, specific gravity, albumin, sugar, blood glucose random, blood urea, serum creatinine, sodium, potassium, haemoglobin, packed cell volume, white and red blood cell counts, plus categorical flags (e.g. hypertension, diabetes mellitus, coronary artery disease, appetite, pedal edema, anemia) and the binary target: <strong>ckd</strong> vs <strong>not ckd</strong>.</p>
+      <p><strong>Dataset characteristics:</strong> Type: Multivariate · Subject area: Other · Associated tasks: Classification · Feature type: Real · Number of instances: 400 · Number of features: 24.</p>
+      <p>Features include age, blood pressure, specific gravity, albumin, sugar, blood glucose random, blood urea, serum creatinine, sodium, potassium, haemoglobin, packed cell volume, white and red blood cell counts, plus categorical flags (red blood cells, pus cell, pus cell clumps, bacteria, hypertension, diabetes mellitus, coronary artery disease, appetite, pedal edema, anemia) and the binary target: <strong>ckd</strong> vs <strong>not ckd</strong>.</p>
+    </div>
+  </section>
+
+  <section id="cleaning">
+    <div class="wrapper">
+      <h2>Data cleaning and exploration</h2>
+      <p class="section-lead">Cleaning the data so it is suitable for effective analysis.</p>
+      <p>Data cleaning removes inconsistencies, errors, and inaccuracies that can skew results. Steps taken:</p>
+      <ul class="features">
+        <li>First step: replace ambiguous column names with more descriptive ones. Clear and descriptive column names make the dataset easier to understand and work with.</li>
+        <li>The categorical columns were examined for inconsistencies. For example, columns like diabetes mellitus, coronary artery disease, and class contained variations such as extra spaces or tab characters that could lead to incorrect interpretations.</li>
+        <li>The class column, which originally contained categorical labels ('ckd' and 'not ckd' for kidney disease), was mapped to numeric values (0 and 1). This step is important for machine learning models that require numerical input rather than categorical labels.</li>
+        <li>We observed missing values in several columns. To address these, we first needed to understand the missing mechanism (MCAR, MAR, or MNAR). Once understood, we used imputation techniques such as mean/mode imputation or random sampling; these steps are explained in depth later in the analysis.</li>
+      </ul>
     </div>
   </section>
 
   <section id="univariate-numeric">
     <div class="wrapper">
       <h2>Univariate analysis — numeric features</h2>
-      <p class="section-lead">Distributions of continuous variables.</p>
-      <p>Age is slightly left-skewed; blood glucose random and blood urea are right-skewed. Most other numeric features are only lightly skewed. These histograms set the stage for later bivariate and modeling steps.</p>
+      <p class="section-lead">Distributions of individual numeric columns.</p>
+      <p><strong>Observations:</strong></p>
+      <ul class="features">
+        <li><strong>Age</strong> looks a bit left-skewed: fewer younger individuals compared to older.</li>
+        <li><strong>Blood glucose random</strong> is right-skewed: most individuals have lower glucose levels, with a few significantly higher.</li>
+        <li><strong>Blood urea</strong> is also right-skewed: most values on the lower end, higher values less frequent.</li>
+        <li>The rest of the features are lightly skewed, with distributions relatively close to normal.</li>
+      </ul>
       <div class="chart-wrap size-tall">
         <iframe src="assets/features_distribution_plot.html" title="Numeric feature distributions" width="100%" height="700"></iframe>
       </div>
@@ -198,8 +219,19 @@
   <section id="correlations">
     <div class="wrapper">
       <h2>Correlation heatmap</h2>
-      <p class="section-lead">How numeric features relate to each other.</p>
-      <p>Notable patterns: <span class="positive">positive</span> links between specific gravity and red blood cell count / packed cell volume / haemoglobin; sugar with blood glucose random; blood urea with serum creatinine; and haemoglobin with PCV and RBC. <span class="negative">Negative</span> correlations appear between albumin and blood urea vs RBC/PCV/hemoglobin, and between serum creatinine and sodium—consistent with kidney function and fluid balance.</p>
+      <p class="section-lead">Relationships between biological factors and implications for CKD.</p>
+      <p><span class="positive">Positive correlations:</span></p>
+      <ul class="features">
+        <li><strong>Specific gravity → Red blood cell count, packed cell volume, haemoglobin:</strong> Specific gravity measures solute concentration in urine. Higher values may indicate dehydration and can relate to increases in RBC, PCV, and haemoglobin. As kidney function changes, the body’s ability to concentrate urine may shift, linking to blood parameters.</li>
+        <li><strong>Sugar → Blood glucose random:</strong> Expected positive correlation; blood glucose reflects sugar in the blood. High blood sugar is a key indicator of diabetes, a major risk factor for CKD. Elevated glucose can damage the kidneys over time.</li>
+        <li><strong>Blood urea → Serum creatinine:</strong> Both are waste products filtered by the kidneys. Rising levels typically indicate impaired kidney function and are used to diagnose and monitor CKD.</li>
+        <li><strong>Haemoglobin → Red blood cell count, packed cell volume:</strong> Haemoglobin carries oxygen in red blood cells; PCV is the proportion of blood that is red cells. These positive correlations reflect blood health and are important for assessing anemia, which is common in CKD due to reduced erythropoietin production.</li>
+      </ul>
+      <p><span class="negative">Negative correlations:</span></p>
+      <ul class="features">
+        <li><strong>Albumin, blood urea → Red blood cell count, packed cell volume, haemoglobin:</strong> Albumin can leak into urine when kidneys are damaged. Higher blood urea and negative correlation with RBC/PCV/haemoglobin can indicate worsening kidney function and anemia.</li>
+        <li><strong>Serum creatinine → Sodium:</strong> As kidney function worsens (rising creatinine), the kidneys’ ability to maintain sodium balance can be compromised, potentially leading to hyponatremia and serious consequences.</li>
+      </ul>
       <div class="chart-wrap size-wide">
         <iframe src="assets/features_heat_map.html" title="Correlation heatmap" width="100%" height="520"></iframe>
       </div>
@@ -209,11 +241,20 @@
   <section id="bivariate-violins">
     <div class="wrapper">
       <h2>Bivariate analysis — violins by class</h2>
-      <p class="section-lead">Numeric features vs CKD status.</p>
-      <p>Violin plots highlight how key biomarkers differ between CKD and non-CKD patients: serum creatinine, haemoglobin, blood urea, albumin, red blood cell count, and packed cell volume show clear separation and are central to both biology and model performance.</p>
+      <p class="section-lead">Key biomarkers compared between CKD and non-CKD patients.</p>
+      <p>The violin plots below compare biomarkers between CKD and non-CKD patients. These differences are crucial for understanding kidney dysfunction and for diagnosis and monitoring of chronic kidney disease.</p>
       <div class="chart-wrap size-tall">
         <iframe src="assets/bivariate_class.html" title="Violins by class" width="100%" height="700"></iframe>
       </div>
+      <p><strong>We can draw the following conclusions from the plots above:</strong></p>
+      <ul class="features">
+        <li><strong>Serum creatinine:</strong> CKD: Mean = 4.41, Median = 2.25, Range = 0.5 to 76.0. Non-CKD: Mean = 0.87, Median = 0.9, Range = 0.4 to 1.2. Significance: Serum creatinine is a crucial indicator of kidney function, as creatinine is a waste product filtered by the kidneys. In CKD patients, the kidneys lose their ability to efficiently filter creatinine, leading to higher levels in the blood. The stark contrast between CKD and non-CKD groups underscores serum creatinine's role as a diagnostic tool for identifying kidney dysfunction. Monitoring serum creatinine levels over time can help assess the progression of CKD and the effectiveness of treatments aimed at preserving kidney function.</li>
+        <li><strong>Hemoglobin:</strong> CKD: Mean = 10.65, Median = 10.9, Range = 3.1 to 16.1. Non-CKD: Mean = 15.19, Median = 15.0, Range = 13.0 to 17.8. Significance: Hemoglobin is a protein in red blood cells that carries oxygen throughout the body. Lower hemoglobin levels in CKD patients are often due to anemia, a common complication of CKD caused by reduced production of erythropoietin (a hormone produced by the kidneys). Anemia can lead to fatigue, weakness, and other health issues in CKD patients. Regular monitoring of hemoglobin levels is essential in managing CKD, as it helps in identifying the need for treatments like erythropoiesis-stimulating agents or iron supplements to combat anemia and improve the patient's quality of life.</li>
+        <li><strong>Blood urea:</strong> CKD: Mean = 72.39, Median = 53.0, Range = 1.5 to 391.0. Non-CKD: Mean = 32.80, Median = 33.0, Range = 10.0 to 50.0. Significance: Blood urea levels reflect the amount of urea nitrogen in the blood, a waste product formed from the breakdown of proteins. Elevated levels in CKD patients indicate impaired kidney function, as the kidneys are less able to remove urea from the bloodstream. The broad range of blood urea levels in CKD patients highlights the variability in disease severity and the degree of kidney impairment. Monitoring blood urea can help track disease progression, guide dietary recommendations, and inform the need for interventions like dialysis.</li>
+        <li><strong>Albumin:</strong> CKD: Mean = 1.72, Median = 2.0, Range = 0.0 to 5.0. Non-CKD: Mean = 0.0, Median = 0.0, Range = 0.0 to 0.0. Significance: Albumin is a protein that is normally retained in the bloodstream by healthy kidneys. The presence of albumin in CKD patients (and its absence in non-CKD patients) indicates kidney damage, as albumin should not normally pass into the urine in significant amounts. Elevated albumin levels in the urine (albuminuria) are often one of the earliest signs of CKD and can be used to detect the disease in its early stages. Regular testing for albumin in the urine is essential for early detection, monitoring disease progression, and preventing complications through timely interventions.</li>
+        <li><strong>Red blood cell count:</strong> CKD: Mean = 3.95, Median = 3.9, Range = 2.1 to 8.0. Non-CKD: Mean = 5.38, Median = 5.3, Range = 4.4 to 6.5. Significance: Red blood cells are responsible for carrying oxygen from the lungs to the rest of the body. A lower red blood cell count in CKD patients is indicative of anemia, which is commonly caused by reduced production of erythropoietin by the kidneys. Anemia in CKD patients can lead to symptoms such as fatigue, dizziness, and shortness of breath, significantly impacting their quality of life. Monitoring red blood cell count is crucial for diagnosing anemia in CKD patients and guiding treatment options, such as erythropoiesis-stimulating agents or iron supplements, to improve oxygen delivery and overall patient well-being.</li>
+        <li><strong>Packed cell volume (PCV):</strong> CKD: Mean = 32.94, Median = 33.0, Range = 9.0 to 52.0. Non-CKD: Mean = 46.34, Median = 46.0, Range = 40.0 to 54.0. Significance: Packed cell volume, or hematocrit, measures the proportion of blood volume occupied by red blood cells. A lower PCV in CKD patients reflects a reduced number of red blood cells, which is consistent with anemia. This reduction in PCV means that CKD patients have a lower capacity to carry oxygen throughout the body, leading to the various symptoms of anemia. Monitoring PCV is important in assessing the severity of anemia in CKD patients and determining the need for interventions that can improve red blood cell production and oxygen-carrying capacity, ultimately improving patient outcomes.</li>
+      </ul>
     </div>
   </section>
 
@@ -231,34 +272,96 @@
   <section id="bivariate-scatter">
     <div class="wrapper">
       <h2>Bivariate analysis — scatter grid</h2>
-      <p class="section-lead">Pairwise scatter plots for selected features, colored by class.</p>
-      <p>Serum creatinine, haemoglobin, blood urea, albumin, red blood cell count, and packed cell volume in pairs. Strong positive correlation between haemoglobin and PCV; moderate positive between serum creatinine and blood urea; negative between haemoglobin and blood urea. These patterns support both interpretation and feature engineering.</p>
+      <p class="section-lead">Correlation patterns for feature selection and engineering.</p>
+      <p>Using the findings above, we identify the most relevant features for correlation analysis. Understanding these correlations helps in feature selection and engineering for modeling.</p>
       <div class="chart-wrap size-tall">
         <iframe src="assets/bivariate_class3.html" title="Scatter grid by class" width="100%" height="700"></iframe>
       </div>
+      <p><strong>We can draw the following conclusions from the plots above:</strong></p>
+      <p><span class="positive">Positive correlations:</span></p>
+      <ul class="features">
+        <li><strong>Haemoglobin vs packed cell volume:</strong> Correlation 0.95. Both features show low variance, suggesting they are stable and consistently related. The line of best fit would have a very steep upward slope, indicating a very strong positive relationship. This high correlation indicates that haemoglobin and packed cell volume are closely related and likely capture similar aspects of blood health. Feature engineering might involve combining these into a single metric or index to simplify the model and reduce multicollinearity.</li>
+        <li><strong>Packed cell volume and red blood cell count:</strong> Correlation 0.75. Both exhibit low variance, indicating stability. The line of best fit would show a strong upward slope. The high positive correlation indicates redundancy; combining them into a single metric (e.g. a ratio or index) can simplify the model and reduce multicollinearity while still providing robust information about blood health.</li>
+        <li><strong>Serum creatinine and blood urea:</strong> Correlation 0.55. Both have moderate variance, indicating they provide different aspects of kidney function and are not overly redundant. The line of best fit would show a moderate upward slope. Combining them into a single feature, such as a ratio, can provide a comprehensive measure of kidney function and help capture the broader picture of renal health.</li>
+      </ul>
+      <p><span class="negative">Negative correlations:</span></p>
+      <ul class="features">
+        <li><strong>Haemoglobin and red blood cell count:</strong> Correlation −0.60. High variance in these features indicates significant variability in blood health among individuals. The line of best fit would show a downward slope. The negative correlation and high variance suggest they provide complementary information; feature engineering could involve creating an index or score that integrates both to better capture anemia's complexity.</li>
+        <li><strong>Blood urea and specific gravity:</strong> Correlation −0.40. Both exhibit distinct ranges and distributions, capturing different dimensions of kidney function. The line of best fit would show a mild downward slope. Combining these into a single metric or ratio could enhance the understanding of kidney function and improve predictive accuracy.</li>
+        <li><strong>Haemoglobin vs blood urea:</strong> Correlation −0.57. High variance in both features. The line of best fit would show a downward slope. The negative correlation indicates that lower haemoglobin levels are associated with higher blood urea levels, reflecting potential anemia or worsening renal function—critical for understanding the interplay between anemia and kidney function.</li>
+      </ul>
     </div>
   </section>
 
   <section id="missingness">
     <div class="wrapper">
-      <h2>Missingness and preprocessing</h2>
-      <p class="section-lead">Missing data was treated as MCAR and handled with random imputation (numeric) and mode (categorical).</p>
-      <p>Tests across columns suggested missingness was not strongly dependent on other observed variables (MCAR). We used random-value imputation for numeric columns and mode imputation for categorical ones, then label-encoded categoricals. Feature selection was done with chi-squared (SelectKBest); the top 10 features were used for modeling.</p>
+      <h2>Assessment of missingness</h2>
+      <p class="section-lead">Understanding and handling missing data.</p>
+      <p><strong>NMAR analysis:</strong></p>
+      <ul class="features">
+        <li><strong>White blood cell count and red blood cell count:</strong> Possibly the missing data in these features is related to low or abnormal values, which could indicate NMAR (e.g. if severe anemia cases were more likely to have missing data). This is likely not the case, as low RBC and white blood cell count are included in the dataset.</li>
+        <li><strong>Potassium, sodium:</strong> Similar reasoning applies if missing values were associated with abnormal or severe health conditions. However, the data does in fact possess low and even extreme potassium and sodium levels, so this does not seem to be the case.</li>
+        <li><strong>Packed cell volume, pus cell, haemoglobin:</strong> If missing data were related to critical health conditions or specific thresholds, this could indicate NMAR. Taking a glance at the dataset, this is likely not the case—we see plenty of low haemoglobin levels.</li>
+      </ul>
+      <p>Taking a look at the graphs generated before, these are likely not NMAR.</p>
+      <p><strong>Testing columns for missingness:</strong> Each column in the dataset was tested to determine if the missing data was dependent on other variables. The process involved checking whether the proportion of missing values in a column differed significantly across different groups defined by other columns. The results indicate that the missing data for every column tested seems to be <strong>Missing Completely at Random (MCAR)</strong>. This means that the probability of data being missing is not related to the values of any observed or missing data, and the missingness is purely random.</p>
+      <p>The function <code>test_missingness()</code> compared the proportion of missing values in a specified column across different groups defined by another column. For each column, the proportion of missing values for each group was calculated. A statistical test (ANOVA or t-test) was performed to see if these proportions significantly differed across groups. If the p-value was below a threshold (e.g. 0.05), it suggested that the missingness might be related to the group variable (i.e. not MCAR). The function <code>find_non_mcar_columns()</code> iterated over all columns with missing values and used <code>test_missingness()</code> to test for missingness across all other columns. The final output showed that no significant differences in missingness proportions were found across the groups for any column. Therefore, the missing data in all columns was considered to be MCAR.</p>
+      <p>Since the missing data is MCAR, the missingness is random and does not depend on any observed or unobserved values. The missing data does not introduce systematic bias into the analysis. Random sampling can be used to handle missing values effectively; using random sampling won't introduce bias.</p>
+      <p><strong>Preprocessing:</strong> We used random-value imputation for numeric columns and mode imputation for categorical ones, then label-encoded categoricals. Feature selection was done with chi-squared (SelectKBest); the top 10 features were used for modeling.</p>
+    </div>
+  </section>
+
+  <section id="framing">
+    <div class="wrapper">
+      <h2>Framing the prediction problem</h2>
+      <p class="section-lead">Classification task with accuracy as the main metric.</p>
+      <p>The model aims to predict the likelihood of chronic kidney disease (CKD). This is a classification task, as we are predicting whether a patient falls into the CKD or non-CKD category. The metric we will use to evaluate our model's performance is accuracy, as it provides a straightforward interpretation of the proportion of correctly classified instances.</p>
+      <p>At the time of prediction, we will have access to various features, such as serum creatinine levels, blood urea, haemoglobin, and packed cell volume. These features will be used to predict the presence of CKD, offering valuable insights for early diagnosis and effective disease management.</p>
+    </div>
+  </section>
+
+  <section id="feature-selection">
+    <div class="wrapper">
+      <h2>Model preprocessing</h2>
+      <p class="section-lead">Feature encoding and feature selection.</p>
+      <p><strong>Feature encoding:</strong> In the feature encoding step, categorical variables within the dataset are transformed into numerical values using LabelEncoder from sklearn.preprocessing. This process is essential for preparing the data for machine learning algorithms, which generally require numerical input. Many machine learning models cannot directly process categorical data; converting these categories into numerical values allows the models to interpret and analyze the data effectively.</p>
+      <p><strong>Feature selection:</strong> We performed feature selection to improve the prediction of chronic kidney disease (CKD), using the chi-squared test to rank the importance of each feature in the dataset—focusing on how well they contribute to predicting whether a patient has CKD. By selecting the top-ranked features, the model can be more efficient and accurate, as it uses only the most relevant variables. The selected features are then used to train the classification model, helping to enhance its predictive power while reducing the risk of overfitting.</p>
+      <p>The resulting table shows the highest scoring features with respect to the prediction model:</p>
+      <table class="metrics">
+        <thead><tr><th>Feature</th><th>Score</th></tr></thead>
+        <tbody>
+          <tr><td>white blood cell count</td><td>15370.36</td></tr>
+          <tr><td>blood glucose random</td><td>2460.02</td></tr>
+          <tr><td>blood urea</td><td>2354.87</td></tr>
+          <tr><td>serum creatinine</td><td>365.72</td></tr>
+          <tr><td>packed cell volume</td><td>293.05</td></tr>
+          <tr><td>albumin</td><td>227.37</td></tr>
+          <tr><td>haemoglobin</td><td>119.06</td></tr>
+          <tr><td>age</td><td>114.60</td></tr>
+          <tr><td>sugar</td><td>109.20</td></tr>
+          <tr><td>hypertension</td><td>88.20</td></tr>
+        </tbody>
+      </table>
+      <p>The top three features—white blood cell count, blood glucose random, and blood urea—were identified as the most prevalent and important predictors of chronic kidney disease (CKD). Their significance lies in their direct association with inflammation, diabetes, and kidney function, which are key indicators of CKD, making them crucial for accurate and efficient model predictions.</p>
     </div>
   </section>
 
   <section id="models">
     <div class="wrapper">
       <h2>Models and evaluation</h2>
-      <p class="section-lead">KNN, Random Forest, and XGBoost—confusion matrices and ROC curves.</p>
-      <p>We compare three classifiers on the same train/test split (75% train). <strong>KNN</strong> reached high training accuracy but only ~69% test accuracy (signs of overfitting). <strong>Random Forest</strong> achieved ~97% test accuracy with strong precision and recall for both classes. <strong>XGBoost</strong> reached ~96% test accuracy with balanced metrics. Below: confusion matrices and ROC curves for each model.</p>
+      <p class="section-lead">KNN, Random Forest, and XGBoost—performance metrics, confusion matrices, and ROC curves.</p>
+      <p>We explore three machine learning models for classifying CKD vs non-CKD. Each is evaluated on multiple metrics to determine effectiveness. Below are the confusion matrices and ROC curves for each model.</p>
     </div>
   </section>
 
   <section id="knn">
     <div class="wrapper">
       <h2>K-Nearest Neighbors</h2>
-      <p class="section-lead">Confusion matrix and ROC.</p>
+      <p class="section-lead">Simple, effective classification based on the majority class among nearest neighbors.</p>
+      <p><strong>Best parameters:</strong> Weights: distance · p: 1 (Manhattan) · n_neighbors: 29 · Leaf size: 35 · Algorithm: ball_tree.</p>
+      <p><strong>Performance:</strong> Training accuracy 100% (perfect on training data, suggesting possible overfitting). Test accuracy 69% (decent but the drop from 100% indicates overfitting).</p>
+      <p><strong>Confusion matrix:</strong> True Negatives 45 · False Positives 23 · False Negatives 8 · True Positives 24. Classification report: Class 0 — Precision 0.85, Recall 0.66, F1 0.74 (Support 68). Class 1 — Precision 0.51, Recall 0.75, F1 0.61 (Support 32). Accuracy 0.69; Macro avg 0.68/0.71/0.68; Weighted avg 0.74/0.69/0.70.</p>
+      <p>The KNN classifier achieved 69% test accuracy. It identified most instances of both classes but performed better for class 0. High precision for class 0 and the large number of false positives (23) for class 1 indicate room for improvement in distinguishing the two classes.</p>
       <div class="chart-wrap">
         <iframe src="assets/KNN_CM.html" title="KNN confusion matrix" width="100%" height="500"></iframe>
       </div>
@@ -271,7 +374,11 @@
   <section id="rf">
     <div class="wrapper">
       <h2>Random Forest</h2>
-      <p class="section-lead">Confusion matrix and ROC.</p>
+      <p class="section-lead">Ensemble of decision trees to improve accuracy and control overfitting.</p>
+      <p><strong>Best parameters:</strong> n_estimators: 100 · min_samples_split: 5 · min_samples_leaf: 1 · max_features: 0.75 · max_depth: 12 · criterion: gini.</p>
+      <p><strong>Performance:</strong> Training accuracy 99.7%. Test accuracy 97%—strong generalization to unseen data.</p>
+      <p><strong>Confusion matrix:</strong> TN 68 · FP 0 · FN 3 · TP 29. Classification report: Class 0 — Precision 0.96, Recall 1.00, F1 0.98. Class 1 — Precision 1.00, Recall 0.91, F1 0.95. Accuracy 0.97; Macro avg 0.98/0.95/0.96; Weighted avg 0.97/0.97/0.97.</p>
+      <p>The Random Forest classifier achieved 97% test accuracy with high precision and recall for both classes and minimal errors. It is well-suited for this classification task and generalizes robustly to new data.</p>
       <div class="chart-wrap">
         <iframe src="assets/RFC_CM.html" title="Random Forest confusion matrix" width="100%" height="500"></iframe>
       </div>
@@ -284,7 +391,11 @@
   <section id="xgb">
     <div class="wrapper">
       <h2>XGBoost</h2>
-      <p class="section-lead">Confusion matrix and ROC.</p>
+      <p class="section-lead">Gradient boosting that combines weak learners and focuses on previous errors to improve accuracy.</p>
+      <p><strong>Best parameters:</strong> n_estimators: 100 · min_child_weight: 1 · max_depth: 12 · learning_rate: 0.25 · gamma: 0.1 · colsample_bytree: 0.3.</p>
+      <p><strong>Performance:</strong> Training accuracy 100%. Test accuracy 96%—strong generalization.</p>
+      <p><strong>Confusion matrix:</strong> TN 66 · FP 2 · FN 2 · TP 30. Classification report: Class 0 — Precision 0.97, Recall 0.97, F1 0.97. Class 1 — Precision 0.94, Recall 0.94, F1 0.94. Accuracy 0.96; Macro avg 0.95/0.95/0.95; Weighted avg 0.96/0.96/0.96.</p>
+      <p>The XGBoost classifier achieved 96% test accuracy with high precision and recall for both classes and minimal errors. It is effective for this task and generalizes well to new data.</p>
       <div class="chart-wrap">
         <iframe src="assets/XGBC_CM.html" title="XGBoost confusion matrix" width="100%" height="500"></iframe>
       </div>
@@ -298,7 +409,7 @@
     <div class="wrapper">
       <h2>Summary</h2>
       <p class="section-lead">Random Forest and XGBoost generalize well; KNN overfits.</p>
-      <p>Serum creatinine, haemoglobin, blood urea, and related lab and clinical features drive the predictions. Random Forest and XGBoost both achieve high test accuracy (97% and 96%) and are suitable as reference models for this dataset. The full pipeline—from cleaning and EDA through feature selection and tuning—is reproducible via the notebook and <code>scripts/generate_assets.py</code>, which regenerates the Plotly figures in <code>docs/assets/</code>.</p>
+      <p>Serum creatinine, haemoglobin, blood urea, albumin, packed cell volume, and related lab and clinical features drive the predictions and align with the biology of CKD. Random Forest (97% test accuracy) and XGBoost (96%) are suitable as reference models; KNN shows overfitting (100% train, 69% test). The full pipeline—data cleaning, EDA, missingness assessment, feature selection, and model training—is reproducible via the notebook and <code>scripts/generate_assets.py</code> for regenerating the Plotly figures in <code>docs/assets/</code>.</p>
     </div>
   </section>
 
