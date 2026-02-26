@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predicting Chronic Kidney Disease — Sardor Sobirov</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-soft: rgba(88, 166, 255, 0.15);
+      --border: #30363d;
+      --green: #3fb950;
+      --amber: #d29922;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Source Sans 3', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    .wrapper { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% 20%, var(--accent-soft), transparent 60%);
+      pointer-events: none;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    .byline { color: var(--accent); font-weight: 600; }
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--muted);
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .scroll-hint span { animation: bounce 2s infinite; }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+    section {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border);
+    }
+    section:first-of-type { border-top: none; }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.85rem;
+      font-weight: 400;
+      margin: 0 0 1rem;
+      color: var(--text);
+    }
+    .section-lead {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+    .chart-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    }
+    .chart-wrap iframe {
+      display: block;
+      width: 100%;
+      border: none;
+      min-height: 500px;
+    }
+    .chart-wrap.size-wide iframe { min-height: 520px; }
+    .chart-wrap.size-tall iframe { min-height: 700px; }
+    .insight-box {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .insight-box strong { color: var(--accent); }
+    ul.features { margin: 0.5rem 0; padding-left: 1.25rem; }
+    ul.features li { margin: 0.35rem 0; }
+    .positive { color: var(--green); }
+    .negative { color: #f85149; }
+    table.metrics {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    table.metrics th, table.metrics td {
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    table.metrics th { color: var(--muted); font-weight: 600; }
+    footer {
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrapper">
+      <h1>Predicting Chronic Kidney Disease</h1>
+      <p class="subtitle">From data to diagnosis: EDA, preprocessing, and classification</p>
+      <p class="byline">Sardor Sobirov</p>
+    </div>
+    <div class="scroll-hint">
+      <span>↓</span>
+      <span>Scroll to explore</span>
+    </div>
+  </header>
+
+  <section id="intro">
+    <div class="wrapper">
+      <h2>Introduction</h2>
+      <p class="section-lead">A machine learning project using the UCI Chronic Kidney Disease dataset to predict CKD from clinical and lab features.</p>
+      <p>This project walks through building a prediction model for chronic kidney disease using a multivariate dataset from the <a href="https://archive.ics.uci.edu/dataset/336/chronic+kidney+disease" target="_blank" rel="noopener" style="color: var(--accent);">UCI Machine Learning Repository</a>. The data was collected from hospital records over about two months and includes 400 instances and 24 features—a mix of numerical lab values and categorical clinical indicators.</p>
+      <p>We clean the data, explore distributions and correlations, assess missingness, then train and compare three classifiers: K-Nearest Neighbors, Random Forest, and XGBoost. The goal is a clear, reproducible narrative you can scroll through section by section.</p>
+    </div>
+  </section>
+
+  <section id="dataset">
+    <div class="wrapper">
+      <h2>Dataset at a glance</h2>
+      <p class="section-lead">Multivariate, classification task; 400 samples, 24 features.</p>
+      <p>Features include age, blood pressure, specific gravity, albumin, sugar, blood glucose random, blood urea, serum creatinine, sodium, potassium, haemoglobin, packed cell volume, white and red blood cell counts, plus categorical flags (e.g. hypertension, diabetes mellitus, coronary artery disease, appetite, pedal edema, anemia) and the binary target: <strong>ckd</strong> vs <strong>not ckd</strong>.</p>
+    </div>
+  </section>
+
+  <section id="univariate-numeric">
+    <div class="wrapper">
+      <h2>Univariate analysis — numeric features</h2>
+      <p class="section-lead">Distributions of continuous variables.</p>
+      <p>Age is slightly left-skewed; blood glucose random and blood urea are right-skewed. Most other numeric features are only lightly skewed. These histograms set the stage for later bivariate and modeling steps.</p>
+      <div class="chart-wrap size-tall">
+        <iframe src="assets/features_distribution_plot.html" title="Numeric feature distributions" width="100%" height="700"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="univariate-cat">
+    <div class="wrapper">
+      <h2>Univariate analysis — categorical features</h2>
+      <p class="section-lead">Counts for categorical variables.</p>
+      <p>Red blood cells, pus cell, pus cell clumps, bacteria, hypertension, diabetes mellitus, coronary artery disease, appetite, pedal edema, and anemia are summarized below. Cleaning steps (e.g. fixing <code>ckd\t</code> and <code>\tno</code>) were applied before plotting.</p>
+      <div class="chart-wrap size-tall">
+        <iframe src="assets/features_distribution2_plot.html" title="Categorical feature counts" width="100%" height="700"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="correlations">
+    <div class="wrapper">
+      <h2>Correlation heatmap</h2>
+      <p class="section-lead">How numeric features relate to each other.</p>
+      <p>Notable patterns: <span class="positive">positive</span> links between specific gravity and red blood cell count / packed cell volume / haemoglobin; sugar with blood glucose random; blood urea with serum creatinine; and haemoglobin with PCV and RBC. <span class="negative">Negative</span> correlations appear between albumin and blood urea vs RBC/PCV/hemoglobin, and between serum creatinine and sodium—consistent with kidney function and fluid balance.</p>
+      <div class="chart-wrap size-wide">
+        <iframe src="assets/features_heat_map.html" title="Correlation heatmap" width="100%" height="520"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="bivariate-violins">
+    <div class="wrapper">
+      <h2>Bivariate analysis — violins by class</h2>
+      <p class="section-lead">Numeric features vs CKD status.</p>
+      <p>Violin plots highlight how key biomarkers differ between CKD and non-CKD patients: serum creatinine, haemoglobin, blood urea, albumin, red blood cell count, and packed cell volume show clear separation and are central to both biology and model performance.</p>
+      <div class="chart-wrap size-tall">
+        <iframe src="assets/bivariate_class.html" title="Violins by class" width="100%" height="700"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="bivariate-density">
+    <div class="wrapper">
+      <h2>Bivariate analysis — density by class</h2>
+      <p class="section-lead">Density histograms by CKD vs non-CKD.</p>
+      <p>Same numeric features, shown as density distributions by class. The overlap and separation here inform feature importance and model design.</p>
+      <div class="chart-wrap size-tall">
+        <iframe src="assets/bivariate_class2.html" title="Density by class" width="100%" height="700"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="bivariate-scatter">
+    <div class="wrapper">
+      <h2>Bivariate analysis — scatter grid</h2>
+      <p class="section-lead">Pairwise scatter plots for selected features, colored by class.</p>
+      <p>Serum creatinine, haemoglobin, blood urea, albumin, red blood cell count, and packed cell volume in pairs. Strong positive correlation between haemoglobin and PCV; moderate positive between serum creatinine and blood urea; negative between haemoglobin and blood urea. These patterns support both interpretation and feature engineering.</p>
+      <div class="chart-wrap size-tall">
+        <iframe src="assets/bivariate_class3.html" title="Scatter grid by class" width="100%" height="700"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="missingness">
+    <div class="wrapper">
+      <h2>Missingness and preprocessing</h2>
+      <p class="section-lead">Missing data was treated as MCAR and handled with random imputation (numeric) and mode (categorical).</p>
+      <p>Tests across columns suggested missingness was not strongly dependent on other observed variables (MCAR). We used random-value imputation for numeric columns and mode imputation for categorical ones, then label-encoded categoricals. Feature selection was done with chi-squared (SelectKBest); the top 10 features were used for modeling.</p>
+    </div>
+  </section>
+
+  <section id="models">
+    <div class="wrapper">
+      <h2>Models and evaluation</h2>
+      <p class="section-lead">KNN, Random Forest, and XGBoost—confusion matrices and ROC curves.</p>
+      <p>We compare three classifiers on the same train/test split (75% train). <strong>KNN</strong> reached high training accuracy but only ~69% test accuracy (signs of overfitting). <strong>Random Forest</strong> achieved ~97% test accuracy with strong precision and recall for both classes. <strong>XGBoost</strong> reached ~96% test accuracy with balanced metrics. Below: confusion matrices and ROC curves for each model.</p>
+    </div>
+  </section>
+
+  <section id="knn">
+    <div class="wrapper">
+      <h2>K-Nearest Neighbors</h2>
+      <p class="section-lead">Confusion matrix and ROC.</p>
+      <div class="chart-wrap">
+        <iframe src="assets/KNN_CM.html" title="KNN confusion matrix" width="100%" height="500"></iframe>
+      </div>
+      <div class="chart-wrap">
+        <iframe src="assets/KNN_ROC.html" title="KNN ROC curve" width="100%" height="500"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="rf">
+    <div class="wrapper">
+      <h2>Random Forest</h2>
+      <p class="section-lead">Confusion matrix and ROC.</p>
+      <div class="chart-wrap">
+        <iframe src="assets/RFC_CM.html" title="Random Forest confusion matrix" width="100%" height="500"></iframe>
+      </div>
+      <div class="chart-wrap">
+        <iframe src="assets/RFC_ROC.html" title="Random Forest ROC curve" width="100%" height="500"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="xgb">
+    <div class="wrapper">
+      <h2>XGBoost</h2>
+      <p class="section-lead">Confusion matrix and ROC.</p>
+      <div class="chart-wrap">
+        <iframe src="assets/XGBC_CM.html" title="XGBoost confusion matrix" width="100%" height="500"></iframe>
+      </div>
+      <div class="chart-wrap">
+        <iframe src="assets/XGBC_ROC.html" title="XGBoost ROC curve" width="100%" height="500"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="conclusion">
+    <div class="wrapper">
+      <h2>Summary</h2>
+      <p class="section-lead">Random Forest and XGBoost generalize well; KNN overfits.</p>
+      <p>Serum creatinine, haemoglobin, blood urea, and related lab and clinical features drive the predictions. Random Forest and XGBoost both achieve high test accuracy (97% and 96%) and are suitable as reference models for this dataset. The full pipeline—from cleaning and EDA through feature selection and tuning—is reproducible via the notebook and <code>scripts/generate_assets.py</code>, which regenerates the Plotly figures in <code>docs/assets/</code>.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrapper">
+      <p>Chronic Kidney Disease prediction project · <a href="https://archive.ics.uci.edu/dataset/336/chronic+kidney+disease">UCI dataset</a> · Structure and artifacts: <code>structure.md</code></p>
+    </div>
+  </footer>
+</body>
+</html>
